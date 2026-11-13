@@ -4,49 +4,392 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexoGear | Mejores Periféricos Gaming Calidad-Precio</title>
+    <meta name="description" content="Comparativas y guías de ratones, teclados mecánicos y auriculares gaming baratos. Elige bien sin gastar de más.">
+    <meta name="theme-color" content="#0b0f19">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NexoGear | Mejores Periféricos Gaming Calidad-Precio">
+    <meta property="og:description" content="Comparativas y guías de periféricos gaming baratos: ratones, teclados y auriculares.">
+    <meta property="og:locale" content="es_ES">
+
     <style>
-        :root { --bg: #0b0f19; --card: #131b2e; --accent: #00f0ff; --text: #f1f5f9; --muted: #94a3b8; }
-        body { background-color: var(--bg); color: var(--text); font-family: system-ui, sans-serif; margin: 0; line-height: 1.6; }
-        header { padding: 1rem 5%; border-bottom: 1px solid #1e293b; display: flex; justify-content: space-between; }
-        .hero { text-align: center; padding: 4rem 5%; max-width: 850px; margin: 0 auto; }
-        .hero h1 { font-size: 2.5rem; color: var(--accent); }
+        :root {
+            --bg: #0b0f19;
+            --card: #131b2e;
+            --card-2: #0f1626;
+            --border: #1e293b;
+            --accent: #00f0ff;
+            --accent-2: #a855f7;
+            --amazon: #ff9900;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(900px 400px at 15% -10%, rgba(0, 240, 255, 0.10), transparent 60%),
+                radial-gradient(800px 400px at 90% 0%, rgba(168, 85, 247, 0.10), transparent 60%);
+            background-repeat: no-repeat;
+            color: var(--text);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        a { color: var(--accent); }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 1rem 5%;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .logo svg { width: 32px; height: 32px; }
+        .logo span { color: var(--accent); text-shadow: 0 0 12px rgba(0, 240, 255, 0.6); }
+        nav { display: flex; gap: 1.2rem; }
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 5rem 5% 3rem;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            color: var(--accent);
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.15;
+            margin: 0 0 1rem;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p { color: var(--muted); font-size: 1.1rem; margin: 0 auto 2rem; max-width: 620px; }
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: #0b0f19;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 0.8rem 1.6rem;
+            border-radius: 10px;
+            box-shadow: 0 0 22px rgba(0, 240, 255, 0.35);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(0, 240, 255, 0.55); }
+
+        /* Layout */
         .container { max-width: 1100px; margin: 0 auto; padding: 2rem 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
-        .product-card { background: var(--card); border: 1px solid #1e293b; border-radius: 14px; padding: 1.5rem; }
-        .btn-amazon { background: #ff9900; color: #0f172a; text-decoration: none; font-weight: bold; padding: 0.6rem 1rem; border-radius: 8px; display: inline-block; margin-top: 1rem; }
-        footer { border-top: 1px solid #1e293b; padding: 2rem; text-align: center; color: var(--muted); }
+        .section-title { font-size: 1.7rem; margin: 0 0 0.4rem; }
+        .section-sub { color: var(--muted); margin: 0 0 1.8rem; }
+
+        /* Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.5rem;
+        }
+        .product-card {
+            position: relative;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 240, 255, 0.5);
+            box-shadow: 0 8px 30px rgba(0, 240, 255, 0.08);
+        }
+        .tag {
+            align-self: flex-start;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #0b0f19;
+            background: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            margin-bottom: 0.9rem;
+        }
+        .tag.purple { background: var(--accent-2); color: #fff; }
+        .tag.orange { background: var(--amazon); }
+        .product-icon { font-size: 2.4rem; margin-bottom: 0.5rem; }
+        .product-card h3 { margin: 0 0 0.4rem; font-size: 1.25rem; }
+        .product-card p { color: var(--muted); margin: 0 0 1rem; }
+        .specs { list-style: none; padding: 0; margin: 0 0 1rem; font-size: 0.92rem; }
+        .specs li { padding: 0.25rem 0; border-bottom: 1px dashed var(--border); }
+        .specs li::before { content: "▸ "; color: var(--accent); }
+        .btn-amazon {
+            margin-top: auto;
+            background: var(--amazon);
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 800;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            text-align: center;
+            transition: filter 0.2s, transform 0.15s;
+        }
+        .btn-amazon:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+        /* Tabla */
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card-2);
+        }
+        table { width: 100%; border-collapse: collapse; min-width: 640px; }
+        th, td { padding: 0.9rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        th {
+            background: var(--card);
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background: rgba(0, 240, 255, 0.04); }
+        td strong { color: var(--text); }
+        td .btn-amazon { margin-top: 0; padding: 0.45rem 0.8rem; font-size: 0.85rem; }
+
+        /* Cómo elegimos */
+        .how {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+        }
+        .how div {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+        }
+        .how h4 { margin: 0 0 0.4rem; color: var(--accent); }
+        .how p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        footer .disclaimer {
+            max-width: 780px;
+            margin: 0 auto 1rem;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card-2);
+            font-size: 0.85rem;
+        }
+        footer nav { justify-content: center; margin-bottom: 1rem; }
+
+        @media (max-width: 600px) {
+            nav { display: none; }
+            .hero { padding-top: 3rem; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <div style="font-weight: 800; font-size: 1.3rem;">⚡ NEXO<span style="color: #00f0ff;">GEAR</span></div>
+        <a href="/" class="logo" aria-label="NexoGear - Inicio">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#00f0ff"/>
+                        <stop offset="1" stop-color="#a855f7"/>
+                    </linearGradient>
+                </defs>
+                <rect width="100" height="100" rx="22" fill="#0b0f19"/>
+                <rect x="3" y="3" width="94" height="94" rx="19" fill="none" stroke="url(#lg)" stroke-width="4"/>
+                <path d="M30 74 V26 L70 74 V26" fill="none" stroke="url(#lg)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            NEXO<span>GEAR</span>
+        </a>
+        <nav aria-label="Navegación principal">
+            <a href="#productos">Recomendados</a>
+            <a href="#comparativa">Comparativa</a>
+            <a href="#metodo">Cómo elegimos</a>
+        </nav>
     </header>
+
     <section class="hero">
+        <span class="badge">Calidad-precio · Sin humo</span>
         <h1>Los mejores periféricos gaming baratos</h1>
-        <p>Selección de ratones, teclados mecánicos y auriculares recomendados.</p>
+        <p>Selección de ratones, teclados mecánicos y auriculares recomendados para jugar bien sin dejarte el sueldo.</p>
+        <a href="#productos" class="btn-primary">Ver recomendados</a>
     </section>
+
     <main class="container">
-        <div class="grid">
-            <div class="product-card">
-                <h3>Logitech G203 Lightsync</h3>
-                <p>Mejor ratón económico para gaming competitivo.</p>
-                <a href="https://amazon.es" target="_blank" rel="nofollow noopener" class="btn-amazon">Ver en Amazon</a>
+        <section id="productos">
+            <h2 class="section-title">Nuestras recomendaciones</h2>
+            <p class="section-sub">Tres productos con muy buena relación calidad-precio para empezar.</p>
+
+            <div class="grid">
+                <!-- Sustituye cada href por tu enlace de afiliado de Amazon.es (con tu tag) -->
+                <article class="product-card">
+                    <span class="tag">Mejor ratón económico</span>
+                    <div class="product-icon" aria-hidden="true">🖱️</div>
+                    <h3>Logitech G203 Lightsync</h3>
+                    <p>Mejor ratón económico para gaming competitivo.</p>
+                    <ul class="specs">
+                        <li>Sensor de hasta 8.000 DPI</li>
+                        <li>Iluminación RGB personalizable</li>
+                        <li>Diseño clásico, cómodo y ligero</li>
+                    </ul>
+                    <a href="https://www.amazon.es/?tag=TU-TAG-21" target="_blank" rel="sponsored nofollow noopener" class="btn-amazon">Ver en Amazon</a>
+                </article>
+
+                <article class="product-card">
+                    <span class="tag purple">Mejor teclado mecánico</span>
+                    <div class="product-icon" aria-hidden="true">⌨️</div>
+                    <h3>Redragon K552 Kumara</h3>
+                    <p>Teclado mecánico compacto y duradero.</p>
+                    <ul class="specs">
+                        <li>Formato compacto sin teclado numérico</li>
+                        <li>Interruptores mecánicos</li>
+                        <li>Construcción metálica robusta</li>
+                    </ul>
+                    <a href="https://www.amazon.es/?tag=TU-TAG-21" target="_blank" rel="sponsored nofollow noopener" class="btn-amazon">Ver en Amazon</a>
+                </article>
+
+                <article class="product-card">
+                    <span class="tag orange">Mejores auriculares</span>
+                    <div class="product-icon" aria-hidden="true">🎧</div>
+                    <h3>HyperX Cloud Stinger 2</h3>
+                    <p>Auriculares ligeros con gran comodidad y micrófono.</p>
+                    <ul class="specs">
+                        <li>Drivers de 50 mm</li>
+                        <li>Micrófono giratorio con silenciado</li>
+                        <li>Conexión jack 3,5 mm</li>
+                    </ul>
+                    <a href="https://www.amazon.es/?tag=TU-TAG-21" target="_blank" rel="sponsored nofollow noopener" class="btn-amazon">Ver en Amazon</a>
+                </article>
             </div>
-            <div class="product-card">
-                <h3>Redragon K552 Kumara</h3>
-                <p>Teclado mecánico compacto y duradero.</p>
-                <a href="https://amazon.es" target="_blank" rel="nofollow noopener" class="btn-amazon">Ver en Amazon</a>
+        </section>
+
+        <section id="comparativa" style="margin-top: 4rem;">
+            <h2 class="section-title">Comparativa rápida</h2>
+            <p class="section-sub">Las diferencias clave de un vistazo.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Tipo</th>
+                            <th>Conexión</th>
+                            <th>Ideal para</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Logitech G203 Lightsync</strong></td>
+                            <td>Ratón</td>
+                            <td>USB (cable)</td>
+                            <td>Shooters y juego competitivo</td>
+                            <td><a href="https://www.amazon.es/?tag=TU-TAG-21" target="_blank" rel="sponsored nofollow noopener" class="btn-amazon">Ver precio</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Redragon K552 Kumara</strong></td>
+                            <td>Teclado mecánico</td>
+                            <td>USB (cable)</td>
+                            <td>Primer teclado mecánico</td>
+                            <td><a href="https://www.amazon.es/?tag=TU-TAG-21" target="_blank" rel="sponsored nofollow noopener" class="btn-amazon">Ver precio</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>HyperX Cloud Stinger 2</strong></td>
+                            <td>Auriculares</td>
+                            <td>Jack 3,5 mm</td>
+                            <td>Sesiones largas y comodidad</td>
+                            <td><a href="https://www.amazon.es/?tag=TU-TAG-21" target="_blank" rel="sponsored nofollow noopener" class="btn-amazon">Ver precio</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="product-card">
-                <h3>HyperX Cloud Stinger 2</h3>
-                <p>Auriculares ligeros con gran comodidad y micrófono.</p>
-                <a href="https://amazon.es" target="_blank" rel="nofollow noopener" class="btn-amazon">Ver en Amazon</a>
+        </section>
+
+        <section id="metodo" style="margin-top: 4rem;">
+            <h2 class="section-title">Cómo elegimos</h2>
+            <p class="section-sub">Criterios simples para recomendar solo lo que merece la pena.</p>
+            <div class="how">
+                <div>
+                    <h4>💸 Precio justo</h4>
+                    <p>Priorizamos productos que ofrecen más de lo que cuestan.</p>
+                </div>
+                <div>
+                    <h4>🛠️ Durabilidad</h4>
+                    <p>Buscamos construcción sólida y buena reputación a largo plazo.</p>
+                </div>
+                <div>
+                    <h4>🎯 Rendimiento real</h4>
+                    <p>Nos importa cómo rinde jugando, no solo la lista de especificaciones.</p>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
+
     <footer>
+        <nav aria-label="Navegación del pie">
+            <a href="legal.html">Aviso legal y afiliación</a>
+        </nav>
+        <div class="disclaimer">
+            <strong>Aviso de afiliación:</strong> NexoGear participa en el Programa de Afiliados de Amazon EU, un programa de publicidad para sitios web que permite obtener comisiones por la publicidad y los enlaces a Amazon.es. Como afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos. Esto no supone ningún coste adicional para ti. Los precios y la disponibilidad pueden cambiar; consulta siempre el precio actualizado en Amazon.
+        </div>
         <p>© 2026 NexoGear</p>
     </footer>
 </body>
 </html>
-
