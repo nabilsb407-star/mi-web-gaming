@@ -8,6 +8,7 @@
     <meta name="theme-color" content="#0b0f19">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <style>
+        [hidden] { display: none !important; }
         * { box-sizing: border-box; }
         body {
             background: #0b0f19;
@@ -39,10 +40,12 @@
         <p>Última actualización: noviembre de 2026</p>
 
         <h2>1. Información general</h2>
-        <p>NexoGear es un sitio web informativo dedicado al análisis y la comparativa de periféricos y hardware gaming. Para cualquier consulta o contacto puedes escribir a: <strong>nexogearproject@gmail.com</strong>.</p>
+        <p>NexoGear es un sitio web informativo dedicado al análisis y la comparativa de periféricos y hardware gaming. Titular del sitio: <strong>[TU NOMBRE Y APELLIDOS]</strong>. Para cualquier consulta o contacto puedes escribir a: <strong>nexogearproject@gmail.com</strong>.</p>
 
+        <div data-aviso-afiliado hidden>
         <h2>2. Divulgación de afiliados</h2>
         <p>NexoGear participa en el Programa de Afiliados de Amazon EU, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener comisiones por publicidad, publicitando e incluyendo enlaces a Amazon.es. Como afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos. Esto no supone ningún coste adicional para el usuario.</p>
+        </div>
 
         <h2>3. Exactitud de la información</h2>
         <p>Los análisis se basan en las especificaciones oficiales de los fabricantes y en la experiencia que comparten los usuarios. Las características, versiones, precios y disponibilidad pueden cambiar sin previo aviso. Confirma siempre los datos en la ficha del producto en Amazon antes de comprar. NexoGear no se hace responsable de errores u omisiones puntuales.</p>
@@ -53,5 +56,13 @@
         <h2>5. Privacidad y cookies</h2>
         <p>Este sitio web estático no recopila datos personales directamente ni utiliza cookies propias de rastreo publicitario. Al hacer clic en enlaces externos hacia Amazon.es, dicha plataforma puede aplicar sus propias políticas de privacidad y cookies. El proveedor de alojamiento (Cloudflare) puede registrar datos técnicos básicos de las visitas, como la dirección IP, por motivos de seguridad y funcionamiento. Si en el futuro se añaden herramientas de analítica o publicidad, esta política se actualizará.</p>
     </div>
+<script src="/config.js"></script>
+<script>
+(function () {
+  var tag = (window.NEXOGEAR_TAG || "").trim();
+  if (!tag) return;
+  document.querySelectorAll("[data-aviso-afiliado]").forEach(function (el) { el.hidden = false; });
+})();
+</script>
 </body>
 </html>
